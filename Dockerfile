@@ -8,4 +8,4 @@ RUN mkdir -p ${MATCHERS_DIR}
 COPY yamllint.json ${MATCHER_FILE}
 RUN echo "::[add-matcher]${MATCHER_FILE}"
 
-ENTRYPOINT ["yamllint",".", "--format", "github"]
+ENTRYPOINT ["yamllint", "-f", "github", "-d", "{extends: default, rules: {line-length: disable}}", "."]
